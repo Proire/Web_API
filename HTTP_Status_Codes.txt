@@ -1,0 +1,93 @@
+31/05/2024 - Friday 09:53 
+
+HTTP response status code : indicates whether specific
+http request has been successfully completed.
+
+Five classes : 
+1) Informational responses(100-199) 
+
+	100 continue - everyting is ok client should continue with request or ignore if already finished.
+	
+	101 switching protocols - indicates protocol the server is switching to 
+	
+	102 processing - server has received and processing the request but no response yet.
+	
+	103 Early hints - Link Header specifies which resources should be preloaded by sending links.
+	
+2) Successful Responses(200-299)
+
+	200 ok - request succeeded.
+	
+	201 created - new resource created successfully using post or some put methods
+
+	202 Accepted - indicates request still in process and no promise of commitment.
+	
+	203 Non-Authoritative Information - Cached or nearby server which is mirror of origin server has served our request for better performance not the original server so can be issue of not up-to-date data available.
+	
+	204 No content - no content in message body but does ask client to updates its cached headers for multiple requests
+	
+	205 Reset Content - indicates the client side should reset its page or document.
+	
+	206 Partial content - indicates server is sending only part of data requested in the request from client
+	
+	207 Multi-Status(WebDAV) - conveys info about multiple resources in response body in form of xml document 
+	
+	208 Already Reported(WebDAV) - indicates that a resource has already been included in a previous response element to avoid redundant enumeration.
+	
+	226 IM used(HTTP Delta Encoding) -  indicates that the server's response is the result of applying one or more instance manipulations, such as delta encoding, to the current instance of the resource.
+	
+3) Redirection messages(300-399)
+
+	300 multiple choices - indicates that the request has multiple possible responses, and the user agent or user should select one of them by clicking on links.
+	
+	301 Moved Permanently - The URL of the requested resource has been changed permanently. The new URL is given in the response.
+	
+	302 found -  This response code means that the URI of requested resource has been changed temporarily. Further changes in the URI might be made in the future. Therefore, this same URI should be used by the client in future requests.
+	
+	303 See Other - The server sent this response to direct the client to get the requested resource at another URI with a GET request.
+	
+	304 Not Modified - his is used for caching purposes. It tells the client that the response has not been modified, so the client can continue to use the same cached version of the response.
+	
+	307 Temporary Redirect - The server sends this response to direct the client to get the requested resource at another URI with the same method that was used in the prior request.
+	
+	307 Temporary Redirect - Instructs the client to retrieve the requested resource from another URI using the same HTTP method as the original request. Similar to 302 Found but with restrictions on method change.
+
+	308 Permanent Redirect - Indicates that the resource is permanently located at another URI. Similar to 301 Moved Permanently but with restrictions on method change.
+	
+4) Client Error Responses(400 - 499) 
+	
+	400 Bad Request - server cannot or will not process request due to something wrong on client side 
+	
+	401 Unauthorized - Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response.
+	
+	403 Forbidden - The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server.
+	
+	404 not found - The server cannot find the requested resource. In the browser, this means the URL is not recognized. In an API, this can also mean that the endpoint is valid but the resource itself does not exist. Servers may also send this response instead of 403 Forbidden to hide the existence of a resource from an unauthorized client. This response code is probably the most well known due to its frequent occurrence on the web.
+	
+	405 Method not allowed - The request method is known by the server but is not supported by the target resource. For example, an API may not allow calling DELETE to remove a resource.
+	
+	406 Not Acceptable - This response is sent when the web server, after performing server-driven content negotiation, doesn't find any content that conforms to the criteria given by the user agent.
+	
+	407 Proxy Authentication Required - This is similar to 401 Unauthorized but authentication is needed to be done by a proxy.
+	
+	408 Request TimeOut - This response is sent on an idle connection by some servers, even without any previous request by the client.
+	
+	409 Conflict - This response is sent when a request conflicts with the current state of the server.
+
+	410 Gone - This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+	
+5) Server Error Responses - 
+	
+	500 Internal Server Error - The server has encountered a situation it does not know how to handle.
+
+	501 Not Implemented - The request method is not supported by the server and cannot be handled. The only methods that servers are required to support (and therefore that must not return this code) are GET and HEAD.
+
+	502 Bad Gateway - This error response means that the server, while working as a gateway to get a response needed to handle the request, got an invalid response.
+	
+	503 Service Unavailable - The server is not ready to handle the request. Common causes are a server that is down for maintenance or that is overloaded.
+	
+	504 Gateway Timeout - This error response is given when the server is acting as a gateway and cannot get a response in time.
+	
+	511 Network Authentication Required - Indicates that the client needs to authenticate to gain network access.
+	
+	
